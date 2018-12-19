@@ -1,0 +1,25 @@
+<ion-nav [root]="rootPage"></ion-nav>
+
+<ion-content>
+    <ion-list>
+        <ion-item *ngFor="let message of messageProvider.getAll() | async">
+            <ion-note>
+                {{message.name}}:
+            </ion-note>
+            {{message.text}}
+        </ion-item>
+    </ion-list>
+</ion-content>
+
+<ion-footer>
+    <ion-grid>
+        <ion-row>
+            <ion-col col-11>
+                <ion-input placeholder="Digite algo..." [(ngModel)]="text"></ion-input>
+            </ion-col>
+            <ion-col align-self-end>
+                <button ion-button (click)="sendMessage()">Enviar</button>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-footer>
